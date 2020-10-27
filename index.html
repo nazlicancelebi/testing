@@ -37,18 +37,21 @@
 				<h1>ReBox</h1>
 				<p class="lead">Find the recycle bin closest to your location.</p>
 				<form>
-					<div class="mb-3">
-						<input type="text" class="form-control" id="inputLocation" placeholder="Your Location">
+					<div class="form-group row mb-3">
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="inputLocation" placeholder="Your Location">
+						</div>
+						<div class="col-sm-2">
+							<button class="btn" onclick="getLocation()">auto</button>
+						</div>
+						<p id="demo"></p>
 					</div>
-					<button onclick="getLocation()">Find your location</button>
-					<p id="demo"></p>
 					<div class="mb-3">
 						<a class="btn btn-lg" data-toggle="collapse" role="button" href="#maparea" aria-controls="maparea" aria-expanded="false">Find the Box</a>
 					</div>
 				</form>
 				<div class="collapse" id="maparea">
 					<div class="card card-body">
-
 					</div>
 				</div>
 			</main>

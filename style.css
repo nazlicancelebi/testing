@@ -65,16 +65,22 @@ body {
   padding: .75rem 1.25rem;
   font-weight: 700;
 }
+.btn-loc{
+  font-size:15px;
+}
 
 /* Custom default button */
 .btn-lg,
-.btn-lg:focus {
+.btn-lg:focus,
+.btn,
+.btn:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #fff;
   border: .05rem solid #fff;
 }
-.btn-lg:hover{
+.btn-lg:hover,
+.btn:hover{
   background-color: #b5b5b5;
   border-color:#b3b3b3;
 }
