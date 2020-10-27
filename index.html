@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<title>Homepage // ReBox</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+			<header>
+				<nav class="navbar fixed-top navbar-expand-md navbar-dark">
+					<div class="container cover-container">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="index.html">
+								<img src="resources/main.png" alt="main icon">
+							</a>
+						</div>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarCollapse">
+							<div class="nav navbar-nav ml-auto">
+								<a class="nav-item nav-link active" href="index.html">HOME<span class="sr-only">(current)</span></a>
+								<a class="nav-item nav-link" href="about.html">ABOUT</a>
+								<a class="nav-item nav-link" href="contact.html">CONTACT</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</header>
+
+			<main role="main" class="cover text-center">
+				<h1>ReBox</h1>
+				<p class="lead">Find the recycle bin closest to your location.</p>
+				<form>
+					<div class="mb-3">
+						<input type="text" class="form-control" id="inputLocation" placeholder="Your Location">
+					</div>
+					<button onclick="getLocation()">Try It</button>
+
+					<p id="demo"></p>
+					<div class="mb-3">
+						<a class="btn btn-lg" data-toggle="collapse" role="button" href="#maparea" aria-controls="maparea" aria-expanded="false">Find the Box</a>
+					</div>
+				</form>
+				<div class="collapse" id="maparea">
+					<div class="card card-body">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.6957764543533!2d30.524574214212272!3d39.79021961932096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cc15f3fbe9499f%3A0x2b921d341872c823!2s%C5%9Eifa%20Eczanesi!5e0!3m2!1str!2str!4v1603817304154!5m2!1str!2str" height="400" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+					</div>
+				</div>
+			</main>
+
+			<footer class="mastfoot mt-auto text-center">
+				<div class="inner">
+					<p>Made by <a href="https://github.com/re-box">@re-box</a>.</p>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+		<script>
+		var x = document.getElementById("demo");
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+		function showPosition(position) {
+			x.innerHTML = "Latitude: " + position.coords.latitude +
+			"<br>Longitude: " + position.coords.longitude;
+		}
+	</script>
+</body>
+</html>
