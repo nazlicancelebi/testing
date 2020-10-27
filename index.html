@@ -75,21 +75,31 @@
 			}
 		}
 		function showPosition(position) {
-			Geocoder geocoder;
-			List<Address> addresses;
-			geocoder = new Geocoder(this, Locale.getDefault());
-
-			addresses = geocoder.getFromLocation(position.coords.latitude, position.coords.longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
-
-			String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
-			String city = addresses.get(0).getLocality();
-			String state = addresses.get(0).getAdminArea();
-			String country = addresses.get(0).getCountryName();
-			String postalCode = addresses.get(0).getPostalCode();
-			String knownName = addresses.get(0).getFeatureName(); // Only if available else return NULL
-			x.innerHTML = city
+			x.innerHTML = getCompleteAddressString(position.coords.latitude,position.coords.longitude)
 		}
+		private String getCompleteAddressString(double LATITUDE, double LONGITUDE) {
+			String strAdd = "";
+			Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+			try {
+				List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
+				if (addresses != null) {
+					Address returnedAddress = addresses.get(0);
+					StringBuilder strReturnedAddress = new StringBuilder("");
 
-</script>
+					for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
+						strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+					}
+					strAdd = strReturnedAddress.toString();
+					Log.w("My Current loction address", strReturnedAddress.toString());
+				} else {
+					Log.w("My Current loction address", "No Address returned!");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				Log.w("My Current loction address", "Canont get Address!");
+			}
+			return strAdd;
+		}
+	</script>
 </body>
 </html>
