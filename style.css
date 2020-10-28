@@ -18,20 +18,22 @@
  html,
  body {
   height: 100%;
+  background-color:#c7c7c7;
 }
 
 body {
   padding-top: 3.8rem;
 
 }
-
 .cover-container {
   max-width: 42em;
 }
-.header{
+.section{
   background-color:#fff;
 }
-
+.bar {
+  padding-bottom:1rem;
+}
 /*
  * Header
  */
@@ -85,4 +87,41 @@ body {
 }
 .mastfoot-colored{
   background-color:#232323;
+}
+
+/*
+* About Us
+*/
+.profile {
+  transition: .5s ease;
+}
+
+.overlay {
+  transition: .3s ease;
+  opacity: 0;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.image:hover .profile {
+  opacity: 0.5;
+}
+
+.image:hover .overlay {
+  opacity: 1;
+}
+.overlay > a > img {
+  max-width:4rem;
+
+
+}
+.image > img{
+  border: .3rem solid #c7c7c7;
+}
+.overlay > p {
+  font-weight: 700;
 }
