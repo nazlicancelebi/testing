@@ -22,7 +22,7 @@
 }
 
 body {
-  padding-top: 3.8rem;
+  padding-top: 3.825rem;
 
 }
 .cover-container {
@@ -116,7 +116,6 @@ body {
 }
 .overlay > a > img {
   max-width:4rem;
-
 
 }
 .image > img{
